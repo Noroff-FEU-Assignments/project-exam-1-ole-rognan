@@ -1,0 +1,109 @@
+.carousel {
+    box-sizing: border-box;
+    height: 100%;
+    width: 920px;
+    margin: auto;
+    background: blueviolet;
+}
+.carousel-image {
+    box-sizing: border-box;
+    width: 190px;
+    height: 160px;
+    object-fit: cover;
+    padding: 12px;
+}
+.carousel-track-container {
+    background-color: rgb(171, 228, 39);
+    width: 100%;
+    height:100%;
+    
+}
+.carousel-track {
+    list-style: none;
+    height:100%;
+    width: 900px;
+    position: relative;
+    transition: transform 250ms ease-in;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.carousel-slide {
+    margin-inline: 13px;
+    max-height: 260px;
+    width: 800px;
+    background-color: rgb(248, 213, 255);
+    border: 4px solid rgba(6, 138, 39, 0.3);
+    border-radius: 24px 0px;
+}
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+.carousel-button img {
+    width: 22px;
+}
+.carousel-button-left {
+    left: -40px;
+}
+.carousel-button-right {
+    right: -40px;
+}
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    position: absolute;
+    top: 650px;
+    left: 50%;
+    z-index: 4;
+    transform: translateX(-50%);
+}
+.carousel-indicator {
+    border: 0;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: rgba(0,0,0,.3);
+    margin: 0 12px;
+    cursor: pointer;
+}
+.carousel-indicator.current-slide {
+    background: rgba(0,0,0,.75);
+}
+.is-hidden{
+    display: none;
+}
+
+/*indexPage javascript*/
+.my-title-h3 {
+    text-align: center;
+    font-size: 14px;
+    color: red;
+}
+.my-caption {
+    width: 20px;
+    border: 2px solid black;
+}
+.recipe-post {
+    text-align: center;
+    margin-inline: auto;
+    margin-left: 60px;
+}
+.content-container {
+    max-height: 260px;
+    background-color: rgb(246, 255, 213);
+    border: 4px solid rgba(6, 138, 39, 0.3);
+    border-radius: 24px 0px;
+}
+.index-h3-title {
+    margin: 7px;
+    text-align: center;
+}
+.see-recipe-h4 {
+    margin-top:auto;
+}

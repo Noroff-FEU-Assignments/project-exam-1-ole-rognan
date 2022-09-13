@@ -1,43 +1,15 @@
-
-const postsUrl = "https://gamehub.olemariusrognan.com/wp-json/wp/v2/posts/" + "?per_page=14&_embed";
-
-const carousel = document.querySelector(".carousel")
 const track = document.querySelector(".carousel-track");
 const slides = Array.from(track.children);
 const nextButton = document.querySelector(".carousel-button-right");
 const prevButton = document.querySelector(".carousel-button-left");
 const dotsNav = document.querySelector(".carousel-nav");
 const dots = Array.from(dotsNav.children);
-const slideWidth = carousel.getBoundingClientRect().width;
-
-async function fetchPosts(url){
-    const response = await fetch(url);
-    const posts = await response.json();
-    console.log(posts);
-
-    posts.forEach(function(post){
-        track.innerHTML += `
-        
-            <li class="carousel-slide current-slide">
-                    <h4 class="index-h3-title">${post.title.rendered}</h4>
-                    <img class="carousel-image" src="${post._embedded['wp:featuredmedia']['0'].source_url}" alt="">
-                    <div class="see-recipe-button"> 
-                    <h4 class="see-recipe-h4">See Recipe</h4>
-                    </div>
-            </li>`
-    })
-}
-fetchPosts(postsUrl);
-
-
-
-
-console.log(slideWidth);
+const slideWidth = slides[0].getBoundingClientRect().width;
 
 //arrange the slides next to one another
 const setSlidePosition = (slide, index) => {
-    slide.style.left = slideWidth * index + 'px';
-    
+    slide.style.left = slideWidth * index * 4 + 'px';
+    console.log(slides);
 };
 slides.forEach(setSlidePosition);
 
@@ -113,23 +85,6 @@ dotsNav.addEventListener('click', e => {
     moveToSlide(track, currentSlide, targetSlide);
     updateDots(currentDot, targetDot);
     hideShowArrows(slides, prevButton, nextButton, targetIndex);
- console.log(targetIndex)
+
 })
 
-
-
-
-/*posts.forEach(function(post){
-    carouselContainer.innerHTML += `
-    
-    <div class="carousel-track-container">
-        <ul class="carousel-track">
-            <li class="carousel-slide current-slide">
-                <div class="recipe-post">
-                <h3 class="my-title-h3">${post.title.rendered}</h3>
-                <p class="my-caption">${post._embedded['wp:featuredmedia']['0'].caption.rendered}</p>
-                </div>
-            </li>
-        </ul>
-    </div>`
-})*/

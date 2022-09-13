@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="css/carousel.css">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e39e75ee3f.js" crossorigin="anonymous"></script>
+    <title>carousel</title>
 </head>
-<body class="index-body">
+<body>
     <header class="index-header">
         <div class="header-container">
              
@@ -23,7 +24,7 @@
     <nav>
         <ul>
             <a href="index.html"><li>Home</li></a>
-            <a href="recipes.html?per_page=10"><li>Recipes</li></a>
+            <a href="recipes.html"><li>Recipes</li></a>
             <a href="about.html"><li>About Us</li></a>
             <a href="contact.html"><li>Contact</li></a>
         </ul>
@@ -34,7 +35,18 @@
         </button>
         <div class="carousel-track-container">
             <ul class="carousel-track">
-                
+                <li class="carousel-slide">
+                    <img class="carousel-image" src="/images/Vegan & Gluten Free Peanut Butter Chocolate Chip Brownies.jpg" alt="">
+                </li>
+                <li class="carousel-slide current-slide">
+                    <img class="carousel-image" src="/images/healthy-breakfast.jpg" alt="">
+                </li>
+                <li class="carousel-slide">
+                    <img class="carousel-image" src="/images/meat loaf.jpg" alt="">
+                </li>
+                <li class="carousel-slide">
+                    <img class="carousel-image" src="/images/Vegan & Gluten Free Peanut Butter Chocolate Chip Brownies.jpg" alt="">
+                </li>
             </ul>
         </div>
         <button class="carousel-button carousel-button-right">
@@ -47,8 +59,9 @@
             <button class="carousel-indicator"></button>
         </div>
     </div>
-    
-    <!--<script src="/js/carousel.js"></script> -->
-    <script src="/js/script.js"></script>
+
+
+
+    <script src="/js/carousel.js"></script>
 </body>
 </html>
