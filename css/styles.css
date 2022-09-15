@@ -85,7 +85,6 @@ nav > ul > a :hover {
     border-radius: 10px 0px 10px 0px;
     transition: 0.5s;
 }
-
 .post-image > img{
     width:100%;
     max-height: 100px;
@@ -213,4 +212,22 @@ nav > ul > a :hover {
  .wp-container-2 {
     width: 280px;
  }
- 
+ .modal {
+    height: 440px;
+    width: 70%;
+    position: fixed;
+    top: 40px;
+    left: 160px;
+   background-color: blue;
+   display: none;
+ }
+ .show-modal {
+    display: block;
+ }
+ .wp-block-image:hover {
+    opacity: 0.8;
+    cursor: pointer;
+ }
+ .recipe-content > figure > img {
+    border: 2px solid red;
+ }

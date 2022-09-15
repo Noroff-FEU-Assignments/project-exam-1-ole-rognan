@@ -5,7 +5,7 @@ body{
     background-color: beige;
 }
 .test-carousel {
-    width: 78.5%;
+    width: 78.9%;
     height: 360px;
     display: flex;
     margin: auto;
@@ -14,7 +14,7 @@ body{
 .test-carousel-slide {
     display: flex;
     height: 300px;
-    margin-left: 884px;
+    margin-left: 900px;
 }
 .hide-btn {
     display: none;
@@ -71,7 +71,7 @@ body{
 }
 .nextBtn {
     position: absolute;
-    top: 72%;
+    top: 78%;
     right: 35px ;
     
     border-radius: 10px;
@@ -82,7 +82,7 @@ body{
     border-radius: 10px;
     position: absolute;
     left: 20px;
-    top: 72%;
+    top: 78%;
     border: none;
     background-color:beige;
 }
@@ -102,4 +102,9 @@ body{
     font-size: 18px;
     text-align: center;
     margin-top: 20px;
+}
+.final-post:hover {
+    transform: scale(1.05);
+    transition: ease-in-out;
+    z-index: 9;
 }
