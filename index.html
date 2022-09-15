@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/carousel.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/test.css">
+    <title>test</title>
 </head>
-<body class="index-body">
+<body>
     <header class="index-header">
         <div class="header-container">
-             
         <div class="header-h1">
             <a href="index.html">
                 <img class="logo-image" src="/images/Healthy-Logo.svg" alt="logo"> 
@@ -28,27 +27,22 @@
             <a href="contact.html"><li>Contact</li></a>
         </ul>
     </nav>
-    <div class="carousel">
-        <button class="carousel-button carousel-button-left is-hidden">
-            <img src="/images/left-arow.png" alt="">
-        </button>
-        <div class="carousel-track-container">
-            <ul class="carousel-track">
-                
-            </ul>
-        </div>
-        <button class="carousel-button carousel-button-right">
-            <img src="/images/arrow-right.png" alt="">
-        </button>
-        <div class="carousel-nav">
-            <button class="carousel-indicator current-slide"></button>
-            <button class="carousel-indicator"></button>
-            <button class="carousel-indicator"></button>
-            <button class="carousel-indicator"></button>
+    <h2 class="home-header">Latest recipes</h2>
+    <div class="test-carousel">
+        <div class="test-carousel-slide">
+            <div class="test-post-container">
+                <div class="each-post" id="myDiv">
+
+                </div>
+            </div>
         </div>
     </div>
-    
-    <!--<script src="/js/carousel.js"></script> -->
-    <script src="/js/script.js"></script>
+    <button class="prevBtn hide-btn">
+        <img class="left-arrow" src="/images/left-arrow.png" alt="">
+    </button>
+    <button class="nextBtn hide-btn">
+        <img class= "right-arrow" src="/images/right-arrow.png" alt="">
+    </button>
+    <script src="/js/carousel.js"></script>
 </body>
 </html>

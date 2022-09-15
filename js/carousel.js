@@ -1,90 +1,77 @@
-const track = document.querySelector(".carousel-track");
-const slides = Array.from(track.children);
-const nextButton = document.querySelector(".carousel-button-right");
-const prevButton = document.querySelector(".carousel-button-left");
-const dotsNav = document.querySelector(".carousel-nav");
-const dots = Array.from(dotsNav.children);
-const slideWidth = slides[0].getBoundingClientRect().width;
+const carouselSlide = document.querySelector(".test-carousel-slide");
+const carouselImages = document.querySelectorAll(".each-post");
+const postsUrl = "https://gamehub.olemariusrognan.com/wp-json/wp/v2/posts/" + "?per_page=14&_embed";
+const myPostContainer = document.querySelector(".each-post");
+carouselFrame = document.querySelector(".test-carousel");
 
-//arrange the slides next to one another
-const setSlidePosition = (slide, index) => {
-    slide.style.left = slideWidth * index * 4 + 'px';
-    console.log(slides);
-};
-slides.forEach(setSlidePosition);
+async function fetchPosts(url){
+    const response = await fetch(url);
+    const posts = await response.json();
+    console.log(posts);
 
-const moveToSlide = (track, currentSlide, targetSlide) => {
-    track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-    currentSlide.classList.remove("current-slide");
-    targetSlide.classList.add("current-slide");
+    posts.forEach(function(post){
+
+        myPostContainer.innerHTML += `<div class="final-post">
+            <h4>${post.title.rendered}</h4>
+            <img class="test-image" src="${post._embedded['wp:featuredmedia']['0'].source_url}" alt="">
+            <a class="view-recipe" href="" >View Recipe</a>
+            </div>`;
+
+// buttons
+const prevBtn = document.querySelector(".prevBtn");
+const nextBtn = document.querySelector(".nextBtn");
+
+// counter
+let counter = 1;
+const size = carouselFrame.clientWidth;
+//Hide and show arrows
+if(counter <= 1){
+    prevBtn.classList.add("hide-btn");
+    nextBtn.classList.remove("hide-btn");
+}else{
+    prevBtn.classList.remove("hide-btn");
 }
 
-const updateDots = (currentDot,  targetDot)=> {
-    currentDot.classList.remove("current-slide");
-    targetDot.classList.add("current-slide");
-}
+carouselSlide.style.transform = 'translateX(' + (-size) + 'px)';
 
-const hideShowArrows = (slides, prevButton, nextButton, targetIndex)=> {
-    if(targetIndex === 0) {
-        prevButton.classList.add("is-hidden");
-        nextButton.classList.remove("is-hidden");
-    } else if(targetIndex === slides.length - 1) {
-        prevButton.classList.remove("is-hidden");
-        nextButton.classList.add("is-hidden");
-    } else {
-        prevButton.classList.remove("is-hidden");
-        nextButton.classList.remove("is-hidden");
+// btn listeners
+nextBtn.addEventListener('click',()=>{
+    
+    carouselSlide.style.transition = "transform 250ms ease-in-out";
+    counter ++;
+    
+    carouselSlide.style.transform = 'translateX(' + (-size) * counter + 'px)';
+    //Hide and show arrows
+    if(counter != 1) {
+        prevBtn.classList.remove("hide-btn");
     };
+    if(counter >= posts.length / 4) {
+        nextBtn.classList.add("hide-btn");
+    };
+    console.log(counter);
+});
 
+prevBtn.addEventListener('click',()=>{
+
+    carouselSlide.style.transition = "transform 250ms ease-in-out";
+    counter--;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    //Hide and show arrows
+    if(counter <= 1){
+        prevBtn.classList.add("hide-btn");
+        nextBtn.classList.remove("hide-btn");
+    } 
+    if(counter != 3) {
+        nextBtn.classList.remove("hide-btn");
+    };
+    console.log(counter);
+    
+});
+})
 }
+fetchPosts(postsUrl);
 
-// when I click left, move slides to left
-
-prevButton.addEventListener('click', e => {
-    const currentSlide = track.querySelector('.current-slide');
-    const prevSlide = currentSlide.previousElementSibling;
-    const currentDot = dotsNav.querySelector(".current-slide");
-    const prevDot = currentDot.previousElementSibling;
-    const prevIndex = slides.findIndex(slide => slide === prevSlide);
     
-    moveToSlide(track, currentSlide, prevSlide);
-    updateDots(currentDot, prevDot);
-    hideShowArrows(slides, prevButton, nextButton, prevIndex);
 
-})
-
-// when I click right, move slides to right
-nextButton.addEventListener('click', e => {
-    const currentSlide = track.querySelector('.current-slide');
-    const nextSlide = currentSlide.nextElementSibling;
-    const currentDot = dotsNav.querySelector(".current-slide");
-    const nextDot = currentDot.nextElementSibling;
-    const nextIndex = slides.findIndex(slide => slide === nextSlide);
-
-    moveToSlide(track, currentSlide, nextSlide);
-    updateDots(currentDot, nextDot);
-    hideShowArrows(slides, prevButton, nextButton, nextIndex);
-
-    console.log(currentSlide);
-    
-})
-
-// when I move the nav indicators, move to that slide
-
-dotsNav.addEventListener('click', e => {
-    //what indicator was clicked on?
-    const targetDot = e.target.closest("button");
-    
-    if(!targetDot) return;
-
-    const currentSlide = track.querySelector(".current-slide");
-    const currentDot = dotsNav.querySelector(".current-slide");
-    const targetIndex = dots.findIndex(dot => dot === targetDot) 
-    const targetSlide = slides[targetIndex];
-
-    moveToSlide(track, currentSlide, targetSlide);
-    updateDots(currentDot, targetDot);
-    hideShowArrows(slides, prevButton, nextButton, targetIndex);
-
-})
+        
 
