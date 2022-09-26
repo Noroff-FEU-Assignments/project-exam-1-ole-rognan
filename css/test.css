@@ -5,16 +5,17 @@ body{
     background-color: beige;
 }
 .test-carousel {
-    width: 78.5%;
+    width: 900px;
     height: 360px;
     display: flex;
     margin: auto;
     overflow: hidden;
+    border: 2px solid green;
 }
 .test-carousel-slide {
     display: flex;
     height: 300px;
-    margin-left: 884px;
+    margin-left: 1380px;
 }
 .hide-btn {
     display: none;
