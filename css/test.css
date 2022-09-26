@@ -5,7 +5,11 @@ body{
     background-color: beige;
 }
 .test-carousel {
+<<<<<<< HEAD
     width: 900px;
+=======
+    width: 78.9%;
+>>>>>>> 13c0ef8bf1bb82aedc316064f7e65d162d2b245b
     height: 360px;
     display: flex;
     margin: auto;
@@ -15,7 +19,11 @@ body{
 .test-carousel-slide {
     display: flex;
     height: 300px;
+<<<<<<< HEAD
     margin-left: 1380px;
+=======
+    margin-left: 900px;
+>>>>>>> 13c0ef8bf1bb82aedc316064f7e65d162d2b245b
 }
 .hide-btn {
     display: none;
@@ -72,7 +80,7 @@ body{
 }
 .nextBtn {
     position: absolute;
-    top: 72%;
+    top: 78%;
     right: 35px ;
     
     border-radius: 10px;
@@ -83,7 +91,7 @@ body{
     border-radius: 10px;
     position: absolute;
     left: 20px;
-    top: 72%;
+    top: 78%;
     border: none;
     background-color:beige;
 }
@@ -103,4 +111,9 @@ body{
     font-size: 18px;
     text-align: center;
     margin-top: 20px;
+}
+.final-post:hover {
+    transform: scale(1.05);
+    transition: ease-in-out;
+    z-index: 9;
 }
